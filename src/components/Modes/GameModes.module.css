@@ -1,0 +1,109 @@
+.gameOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.gamePanel {
+  background: var(--chassis-base);
+  border: 1px solid var(--tray-border);
+  border-radius: 8px;
+  padding: 16px 20px;
+  min-width: 220px;
+  pointer-events: auto;
+  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  color: var(--led-cyan);
+  box-shadow:
+    0 8px 32px var(--shadow-deep),
+    inset 0 1px 0 var(--rim-highlight);
+}
+
+.countdown {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--led-cyan);
+  text-shadow: 0 0 12px var(--led-cyan-glow);
+  animation: countPulse 0.5s infinite alternate;
+}
+
+.gameHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.gameScore {
+  color: var(--led-cyan);
+}
+
+.gameCombo {
+  color: var(--led-amber);
+}
+
+.gameArea {
+  text-align: center;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.noteIndex {
+  font-size: 0.65rem;
+  color: var(--led-cyan-dim);
+  letter-spacing: 0.08em;
+}
+
+.hitResult {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.hitPERFECT { color: var(--led-green); text-shadow: 0 0 8px var(--led-green-glow); }
+.hitGREAT { color: var(--led-cyan); text-shadow: 0 0 8px var(--led-cyan-glow); }
+.hitOK { color: var(--led-amber); text-shadow: 0 0 8px var(--led-amber-glow); }
+.hitMISS { color: var(--led-red); text-shadow: 0 0 8px var(--led-red-glow); }
+
+.gameHint {
+  font-size: 0.55rem;
+  color: var(--text-engraved);
+  text-align: center;
+  margin-top: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gameResults {
+  text-align: center;
+}
+
+.gameTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: 0.08em;
+}
+
+.gameStats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.6rem;
+  color: var(--led-cyan-dim);
+  margin-top: 8px;
+  letter-spacing: 0.06em;
+}
+
+@keyframes countPulse {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}

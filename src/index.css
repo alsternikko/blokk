@@ -1,0 +1,84 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+  line-height: 1.4;
+  font-weight: 400;
+  color: #4a4d55;
+  background-color: #0c0d10;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Chassis surface hierarchy */
+  --chassis-base: #16181e;
+  --chassis-deep: #12141a;
+  --tray-surface: #1c1e26;
+  --tray-border: #1e2028;
+  --raised-surface: #22252e;
+  --raised-highlight: #282c36;
+  --raised-active: #1e2028;
+
+  /* Text hierarchy */
+  --text-primary: #c8ccd4;
+  --text-secondary: #6a6e78;
+  --text-muted: #3e4148;
+  --text-engraved: #2e3038;
+
+  /* LED / accent */
+  --led-cyan: #4ac8d8;
+  --led-cyan-dim: #1a4a52;
+  --led-cyan-glow: rgba(74, 200, 216, 0.25);
+  --led-amber: #c89440;
+  --led-amber-glow: rgba(200, 148, 64, 0.2);
+  --led-red: #c84848;
+  --led-red-glow: rgba(200, 72, 72, 0.2);
+  --led-green: #48c870;
+  --led-green-glow: rgba(72, 200, 112, 0.2);
+
+  /* Light physics */
+  --rim-highlight: rgba(255, 255, 255, 0.04);
+  --rim-highlight-strong: rgba(255, 255, 255, 0.07);
+  --shadow-soft: rgba(0, 0, 0, 0.25);
+  --shadow-deep: rgba(0, 0, 0, 0.5);
+  --inset-top: rgba(0, 0, 0, 0.3);
+  --inset-bottom: rgba(255, 255, 255, 0.02);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+button:focus-visible {
+  outline: 1px solid var(--led-cyan);
+  outline-offset: 1px;
+  border-radius: 4px;
+}
+
+@media (max-width: 480px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    font-size: 12px;
+  }
+}

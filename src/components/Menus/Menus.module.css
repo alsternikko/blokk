@@ -1,0 +1,186 @@
+.menuOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 11, 14, 0.75);
+  border-radius: 8px;
+  z-index: 10;
+  backdrop-filter: blur(2px);
+}
+
+.menuPanel {
+  background: var(--chassis-base);
+  border: 1px solid var(--tray-border);
+  border-radius: 8px;
+  padding: 16px;
+  min-width: 260px;
+  max-width: 340px;
+  box-shadow:
+    0 8px 32px var(--shadow-deep),
+    inset 0 1px 0 var(--rim-highlight);
+}
+
+.menuHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--tray-border);
+}
+
+.menuTitle {
+  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.menuClose {
+  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: var(--tray-surface);
+}
+
+.menuClose:hover {
+  color: var(--text-secondary);
+  background: var(--raised-surface);
+}
+
+.menuBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.navRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.navBtn {
+  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: var(--tray-surface);
+  transition: background 0.12s, color 0.12s;
+}
+
+.navBtn:hover {
+  background: var(--raised-surface);
+  color: var(--text-secondary);
+}
+
+.navLabel {
+  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: var(--led-cyan);
+  min-width: 100px;
+  text-align: center;
+  text-shadow: 0 0 4px var(--led-cyan-glow);
+}
+
+.effectList {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.effectItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 8px;
+  border-radius: 4px;
+  background: var(--tray-surface);
+  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  transition: background 0.1s;
+}
+
+.effectItem:hover {
+  background: var(--raised-surface);
+}
+
+.effectOn {
+  color: var(--led-cyan);
+}
+
+.effectStatus {
+  font-size: 0.55rem;
+  padding: 1px 5px;
+  border-radius: 2px;
+  background: var(--chassis-deep);
+  letter-spacing: 0.08em;
+}
+
+.effectOn .effectStatus {
+  background: var(--led-cyan-dim);
+  color: var(--led-cyan);
+}
+
+.adsrRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 8px;
+  border-radius: 4px;
+  background: var(--tray-surface);
+}
+
+.adsrLabel {
+  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+
+.paramRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.paramLabel {
+  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  min-width: 50px;
+  letter-spacing: 0.06em;
+}
+
+.menuHint {
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+.subMenuBtn {
+  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-size: 0.55rem;
+  color: var(--text-engraved);
+  padding: 3px 12px;
+  border-radius: 3px;
+  background: var(--tray-surface);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.subMenuBtn:hover {
+  color: var(--text-muted);
+  background: var(--raised-surface);
+}

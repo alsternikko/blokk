@@ -1,0 +1,72 @@
+.leftPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  width: 140px;
+  min-width: 130px;
+  flex-shrink: 0;
+  border-right: 1px solid #1a1c22;
+  background: linear-gradient(180deg, var(--chassis-deep), #13151b);
+}
+
+.brandLogo {
+  font-family: 'Arial Black', 'Helvetica Neue', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  align-self: flex-start;
+  padding-left: 2px;
+}
+
+.speakerGrille {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 4px 0;
+}
+
+.speakerGrid {
+  display: grid;
+  grid-template-columns: repeat(10, 8px);
+  grid-template-rows: repeat(10, 8px);
+  gap: 2px;
+}
+
+.speakerDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #1e2028;
+  box-shadow: inset 0 0.5px 1px rgba(0, 0, 0, 0.6);
+}
+
+.productText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.5rem;
+  color: var(--text-engraved);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  margin-top: 0;
+  padding-bottom: 2px;
+}
+
+@media (max-height: 440px) and (orientation: landscape) {
+  .leftPanel {
+    gap: 6px;
+    padding: 8px 10px;
+    width: 120px;
+    min-width: 110px;
+  }
+
+  .speakerGrille {
+    padding: 2px 0;
+  }
+}

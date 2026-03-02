@@ -1,0 +1,21 @@
+.rightPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.controlRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-height: 440px) and (orientation: landscape) {
+  .rightPanel {
+    padding: 10px;
+    gap: 6px;
+  }
+}

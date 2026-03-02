@@ -1,0 +1,43 @@
+.deviceFrame {
+  width: 680px;
+  max-width: 95vw;
+  background: var(--chassis-base);
+  border-radius: 12px;
+  border: 1px solid #1e2028;
+  box-shadow:
+    0 20px 60px var(--shadow-deep),
+    0 4px 16px var(--shadow-soft),
+    inset 0 1px 0 var(--rim-highlight-strong);
+  padding: 12px;
+}
+
+.deviceInner {
+  display: flex;
+  position: relative;
+  width: 100%;
+  background: var(--chassis-deep);
+  border-radius: 8px;
+  border: 1px solid #1a1c22;
+  box-shadow:
+    inset 0 1px 3px var(--inset-top),
+    inset 0 -1px 0 var(--inset-bottom);
+  overflow: hidden;
+}
+
+@media (max-height: 440px) and (orientation: landscape) {
+  .deviceFrame {
+    padding: 8px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 520px) {
+  .deviceFrame {
+    border-radius: 8px;
+    padding: 8px;
+  }
+
+  .deviceInner {
+    flex-direction: column;
+  }
+}

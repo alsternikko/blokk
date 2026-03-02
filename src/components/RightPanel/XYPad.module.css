@@ -1,0 +1,130 @@
+.xyPad {
+  position: relative;
+  border-radius: 6px;
+  background: var(--chassis-deep);
+  box-shadow:
+    inset 0 2px 4px var(--inset-top),
+    inset 0 -1px 0 var(--inset-bottom),
+    inset 1px 0 0 rgba(0, 0, 0, 0.1),
+    inset -1px 0 0 rgba(0, 0, 0, 0.1);
+  cursor: crosshair;
+  touch-action: none;
+  user-select: none;
+  overflow: hidden;
+  min-width: 44px;
+  min-height: 44px;
+  aspect-ratio: 1.1;
+}
+
+.xyPad::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  background:
+    linear-gradient(
+      to right,
+      rgba(74, 200, 216, 0.02) 0%,
+      transparent 50%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to top,
+      transparent 0%,
+      transparent 50%,
+      rgba(74, 200, 216, 0.015) 100%
+    );
+  pointer-events: none;
+}
+
+.surface {
+  position: absolute;
+  inset: 4px;
+  border-radius: 3px;
+  background: linear-gradient(175deg, #14161c, #111318);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.crosshair {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--led-cyan-dim);
+  transform: translate(-50%, -50%);
+  transition: background 0.1s, box-shadow 0.1s;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.xyPad--active .crosshair {
+  background: var(--led-cyan);
+  box-shadow: 0 0 8px var(--led-cyan-glow), 0 0 3px var(--led-cyan);
+}
+
+.axisLabelX {
+  position: absolute;
+  bottom: 3px;
+  right: 6px;
+  font-family: 'SF Mono', 'Menlo', monospace;
+  font-size: 0.35rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-engraved);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.axisLabelY {
+  position: absolute;
+  top: 6px;
+  left: 3px;
+  font-family: 'SF Mono', 'Menlo', monospace;
+  font-size: 0.35rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-engraved);
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gridLines {
+  position: absolute;
+  inset: 4px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gridLineH,
+.gridLineV {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.gridLineH {
+  left: 0;
+  right: 0;
+  height: 1px;
+  top: 50%;
+}
+
+.gridLineV {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  left: 50%;
+}
+
+@media (max-height: 440px) and (orientation: landscape) {
+  .xyPad {
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .axisLabelX,
+  .axisLabelY {
+    font-size: 0.3rem;
+  }
+}

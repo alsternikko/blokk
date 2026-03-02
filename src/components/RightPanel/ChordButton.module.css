@@ -1,0 +1,68 @@
+.chordBtn {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  border-radius: 6px;
+  background: linear-gradient(175deg, var(--raised-highlight), var(--raised-surface));
+  box-shadow:
+    0 2px 6px var(--shadow-soft),
+    0 1px 2px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 var(--rim-highlight-strong),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+  transition: transform 0.04s, box-shadow 0.04s;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 6px;
+}
+
+.chordBtn:hover {
+  background: linear-gradient(175deg, #2c3040, var(--raised-highlight));
+}
+
+.chordBtn--active {
+  transform: translateY(1px);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.15),
+    inset 0 1px 4px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(175deg, var(--raised-surface), var(--raised-active));
+}
+
+.chordBtn--locked .chordBtnLed {
+  background: var(--led-amber);
+  box-shadow: 0 0 4px var(--led-amber-glow);
+}
+
+.chordBtn--active .chordBtnLed {
+  background: var(--led-cyan);
+  box-shadow: 0 0 6px var(--led-cyan-glow);
+}
+
+.chordBtn--locked.chordBtn--active .chordBtnLed {
+  background: var(--led-amber);
+  box-shadow: 0 0 6px var(--led-amber-glow);
+}
+
+.chordBtnId {
+  font-family: 'Helvetica Neue', system-ui, sans-serif;
+  font-size: 0.5rem;
+  font-weight: 500;
+  color: var(--text-engraved);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.chordBtnLed {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #1a1c22;
+  transition: background 0.12s, box-shadow 0.12s;
+}

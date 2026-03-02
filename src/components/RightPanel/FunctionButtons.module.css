@@ -1,0 +1,83 @@
+.functionButtons {
+  display: flex;
+  gap: 6px;
+}
+
+.fnBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: linear-gradient(180deg, var(--raised-highlight), var(--raised-surface));
+  box-shadow:
+    0 2px 6px var(--shadow-soft),
+    inset 0 1px 0 var(--rim-highlight-strong),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  transition: transform 0.06s, box-shadow 0.06s;
+  cursor: pointer;
+  touch-action: none;
+  position: relative;
+}
+
+.fnBtn:active,
+.fnBtnActive {
+  transform: translateY(1px);
+  box-shadow:
+    0 1px 2px var(--shadow-soft),
+    inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(180deg, var(--raised-surface), var(--raised-active));
+}
+
+.fnBtnLabel {
+  font-family: 'Helvetica Neue', system-ui, sans-serif;
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.fnBtnActive .fnBtnLabel {
+  color: var(--text-secondary);
+}
+
+.fnBtnLed {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #1a1c22;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+
+/* F1: gray — muted white LED when active */
+.btnF1 .fnBtnLed { background: #1e2028; }
+.btnF1.fnBtnActive .fnBtnLed {
+  background: #6a7080;
+  box-shadow: 0 0 4px rgba(106, 112, 128, 0.3);
+}
+
+/* F2: amber tint — amber LED when active */
+.btnF2 .fnBtnLed { background: #1e1c18; }
+.btnF2.fnBtnActive .fnBtnLed {
+  background: var(--led-amber);
+  box-shadow: 0 0 6px var(--led-amber-glow);
+}
+
+/* F3: red tint — red LED when active */
+.btnF3 .fnBtnLed { background: #1e1818; }
+.btnF3.fnBtnActive .fnBtnLed {
+  background: var(--led-red);
+  box-shadow: 0 0 6px var(--led-red-glow);
+}
+
+@media (max-height: 440px) and (orientation: landscape) {
+  .fnBtn {
+    width: 40px;
+    height: 40px;
+  }
+}

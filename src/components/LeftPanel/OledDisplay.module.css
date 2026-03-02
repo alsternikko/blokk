@@ -1,0 +1,101 @@
+.oledDisplay {
+  background: #08090c;
+  border-radius: 3px;
+  padding: 5px 10px;
+  height: 44px;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  box-shadow:
+    inset 0 1px 4px rgba(0, 0, 0, 0.7),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.015),
+    0 0 8px rgba(74, 200, 216, 0.04);
+  border: 1px solid #0e1014;
+  overflow: hidden;
+}
+
+.displayLine1 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--led-cyan);
+  text-shadow: 0 0 4px var(--led-cyan-glow);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.1;
+  letter-spacing: 0.03em;
+}
+
+.displayLine2 {
+  font-size: 0.55rem;
+  color: var(--led-cyan-dim);
+  text-shadow: 0 0 3px rgba(74, 200, 216, 0.1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.displayStatus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.4rem;
+  color: #14282e;
+  gap: 4px;
+  letter-spacing: 0.04em;
+}
+
+.looperDots {
+  display: flex;
+  gap: 2px;
+}
+
+.looperDot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #0e1014;
+}
+
+.looperDotActive {
+  background: var(--led-cyan);
+  box-shadow: 0 0 4px var(--led-cyan-glow);
+}
+
+.looperDotRecord {
+  background: var(--led-red);
+  box-shadow: 0 0 4px var(--led-red-glow);
+  animation: dotPulse 0.6s infinite alternate;
+}
+
+.looperDotWaiting {
+  background: var(--led-amber);
+  box-shadow: 0 0 3px var(--led-amber-glow);
+  animation: dotPulse 1.2s infinite alternate;
+}
+
+@keyframes dotPulse {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+.waveformTag {
+  font-size: 0.4rem;
+  color: #14282e;
+  padding: 0 2px;
+  letter-spacing: 0.05em;
+}
+
+@media (max-height: 440px) and (orientation: landscape) {
+  .oledDisplay {
+    height: 40px;
+    padding: 4px 8px;
+  }
+}

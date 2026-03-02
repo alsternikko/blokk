@@ -1,0 +1,56 @@
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #0c0d10;
+  padding: 20px;
+}
+
+/* --- AudioUnlock overlay --- */
+.audio-unlock-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0c0d10;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.audio-unlock-content {
+  text-align: center;
+}
+
+.audio-unlock-logo {
+  font-family: 'Arial Black', 'Helvetica Neue', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.audio-unlock-subtext {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.audio-unlock-prompt {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-engraved);
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}

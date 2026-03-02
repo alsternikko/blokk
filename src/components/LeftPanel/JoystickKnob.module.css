@@ -1,0 +1,97 @@
+.joystickKnobContainer {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px auto;
+}
+
+.dotRing {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.dirDot {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #1e2028;
+  box-shadow: inset 0 0.5px 1px rgba(0, 0, 0, 0.5);
+  transform: translate(-50%, -50%);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.knobBody {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(160deg, #2a2d36, #22252e);
+  box-shadow:
+    0 2px 8px var(--shadow-soft),
+    0 1px 2px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 var(--rim-highlight-strong),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  cursor: grab;
+  position: relative;
+  touch-action: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.knobBody:active {
+  cursor: grabbing;
+}
+
+.knobIndicator {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(var(--knob-rotation, 210deg));
+  transform-origin: 50% calc(30px - 6px);
+  width: 2px;
+  height: 8px;
+  background: var(--text-muted);
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+.knobCenter {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(160deg, #30343e, #282c36);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 var(--rim-highlight);
+  transition: transform 0.1s ease-out;
+  pointer-events: none;
+}
+
+/* Direction feedback */
+.dir_UP .knobCenter { transform: translateY(-3px); }
+.dir_DOWN .knobCenter { transform: translateY(3px); }
+.dir_LEFT .knobCenter { transform: translateX(-3px); }
+.dir_RIGHT .knobCenter { transform: translateX(3px); }
+.dir_UP_LEFT .knobCenter { transform: translate(-2px, -2px); }
+.dir_UP_RIGHT .knobCenter { transform: translate(2px, -2px); }
+.dir_DOWN_LEFT .knobCenter { transform: translate(-2px, 2px); }
+.dir_DOWN_RIGHT .knobCenter { transform: translate(2px, 2px); }
+
+/* Active direction dot highlight — small embedded LED */
+.dir_UP .dirDot:nth-child(1),
+.dir_UP_RIGHT .dirDot:nth-child(2),
+.dir_RIGHT .dirDot:nth-child(3),
+.dir_DOWN_RIGHT .dirDot:nth-child(4),
+.dir_DOWN .dirDot:nth-child(5),
+.dir_DOWN_LEFT .dirDot:nth-child(6),
+.dir_LEFT .dirDot:nth-child(7),
+.dir_UP_LEFT .dirDot:nth-child(8) {
+  background: var(--led-cyan);
+  box-shadow: 0 0 6px var(--led-cyan-glow);
+}
