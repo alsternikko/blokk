@@ -24,6 +24,18 @@
   overflow: hidden;
 }
 
+.poweredOff > *:nth-child(n+2) {
+  opacity: 0.45;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.deviceInner:not(.poweredOff) > *:nth-child(n+2) {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s ease;
+}
+
 @media (max-height: 440px) and (orientation: landscape) {
   .deviceFrame {
     padding: 8px;

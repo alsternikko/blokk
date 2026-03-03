@@ -1,4 +1,5 @@
 import { BrandLogo } from './BrandLogo'
+import { PowerButton } from './PowerButton'
 import { SpeakerGrille } from './SpeakerGrille'
 import { JoystickKnob } from './JoystickKnob'
 import styles from './LeftPanel.module.css'
@@ -10,7 +11,10 @@ interface LeftPanelProps {
 export function LeftPanel({ onJoystickClick }: LeftPanelProps) {
   return (
     <div className={styles.leftPanel}>
-      <BrandLogo />
+      <div className={styles.brandRow}>
+        <BrandLogo />
+        <PowerButton />
+      </div>
       <SpeakerGrille />
       <JoystickKnob onJoystickClick={onJoystickClick} />
       <div className={styles.productText}>

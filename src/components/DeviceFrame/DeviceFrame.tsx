@@ -1,3 +1,4 @@
+import { useBlokkStore } from '../../store/useBlokkStore'
 import { LeftPanel } from '../LeftPanel/LeftPanel'
 import { RightPanel } from '../RightPanel/RightPanel'
 import { F2Menu } from '../Menus/F2Menu'
@@ -11,9 +12,16 @@ interface DeviceFrameProps {
 }
 
 export function DeviceFrame({ onJoystickClick }: DeviceFrameProps) {
+  const poweredOn = useBlokkStore((s) => s.audioUnlocked)
+
+  const innerClass = [
+    styles.deviceInner,
+    !poweredOn ? styles.poweredOff : '',
+  ].filter(Boolean).join(' ')
+
   return (
     <div className={styles.deviceFrame}>
-      <div className={styles.deviceInner}>
+      <div className={innerClass}>
         <LeftPanel onJoystickClick={onJoystickClick} />
         <RightPanel />
         <F2Menu />

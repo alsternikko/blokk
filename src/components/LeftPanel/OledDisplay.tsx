@@ -29,6 +29,7 @@ function formatChordName(root: string, type: string): string {
 }
 
 export function OledDisplay() {
+  const poweredOn = useBlokkStore((s) => s.audioUnlocked)
   const key = useBlokkStore((s) => s.key)
   const scale = useBlokkStore((s) => s.scale)
   const mode = useBlokkStore((s) => s.mode)
@@ -113,26 +114,33 @@ export function OledDisplay() {
     }
   }
 
+  const displayClass = [
+    styles.oledDisplay,
+    poweredOn ? styles.displayOn : styles.displayOff,
+  ].join(' ')
+
   return (
-    <div className={styles.oledDisplay} role="status" aria-live="polite" aria-label="Display">
-      <div className={styles.displayLine1}>{line1}</div>
-      <div className={styles.displayLine2}>{line2}</div>
-      <div className={styles.displayStatus}>
-        <span>{bpm} BPM</span>
-        <span className={styles.waveformTag}>{WAVEFORM_LABELS[waveform]}</span>
-        <span className={styles.looperDots}>
-          {looperTracks.map((t, i) => (
-            <span
-              key={i}
-              className={[
-                styles.looperDot,
-                t.status === 'RECORD' ? styles.looperDotRecord : '',
-                t.status === 'LOOP' ? styles.looperDotActive : '',
-                t.status === 'WAITING' ? styles.looperDotWaiting : '',
-              ].filter(Boolean).join(' ')}
-            />
-          ))}
-        </span>
+    <div className={displayClass} role="status" aria-live="polite" aria-label="Display">
+      <div className={styles.displayContent}>
+        <div className={styles.displayLine1}>{line1}</div>
+        <div className={styles.displayLine2}>{line2}</div>
+        <div className={styles.displayStatus}>
+          <span>{bpm} BPM</span>
+          <span className={styles.waveformTag}>{WAVEFORM_LABELS[waveform]}</span>
+          <span className={styles.looperDots}>
+            {looperTracks.map((t, i) => (
+              <span
+                key={i}
+                className={[
+                  styles.looperDot,
+                  t.status === 'RECORD' ? styles.looperDotRecord : '',
+                  t.status === 'LOOP' ? styles.looperDotActive : '',
+                  t.status === 'WAITING' ? styles.looperDotWaiting : '',
+                ].filter(Boolean).join(' ')}
+              />
+            ))}
+          </span>
+        </div>
       </div>
     </div>
   )

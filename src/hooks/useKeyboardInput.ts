@@ -39,6 +39,7 @@ export function useKeyboardInput(
     function handleKeyDown(e: KeyboardEvent) {
       if (e.repeat) return
       const store = useBlokkStore.getState()
+      if (!store.audioUnlocked) return
 
       const chordBtn = KEY_TO_CHORD[e.key]
       if (chordBtn) {
@@ -219,6 +220,7 @@ export function useKeyboardInput(
     }
 
     function handleKeyUp(e: KeyboardEvent) {
+      if (!useBlokkStore.getState().audioUnlocked) return
       const chordBtn = KEY_TO_CHORD[e.key]
       if (chordBtn) {
         heldChords.delete(chordBtn)
