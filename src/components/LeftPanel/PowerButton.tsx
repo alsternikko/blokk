@@ -1,7 +1,7 @@
 import { useCallback, useRef } from 'react'
 import { initAudio } from '../../audio/engine'
 import { useBlokkStore } from '../../store/useBlokkStore'
-import styles from './LeftPanel.module.css'
+import styles from './PowerButton.module.css'
 
 export function PowerButton() {
   const poweredOn = useBlokkStore((s) => s.audioUnlocked)

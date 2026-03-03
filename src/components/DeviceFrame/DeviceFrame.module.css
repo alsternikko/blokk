@@ -24,13 +24,13 @@
   overflow: hidden;
 }
 
-.poweredOff > *:nth-child(n+2) {
+.poweredOff > *:nth-child(n+3) {
   opacity: 0.45;
   pointer-events: none;
   transition: opacity 0.5s ease;
 }
 
-.deviceInner:not(.poweredOff) > *:nth-child(n+2) {
+.deviceInner:not(.poweredOff) > *:nth-child(n+3) {
   opacity: 1;
   pointer-events: auto;
   transition: opacity 0.5s ease;

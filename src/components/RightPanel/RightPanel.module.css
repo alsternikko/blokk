@@ -11,6 +11,31 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  padding: 0 6px;
+}
+
+.rightPanelOff > * {
+  opacity: 0.45;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.rightPanelOff > .controlRow {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.rightPanelOff .controlRow > *:not(:last-child) {
+  opacity: 0.45;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.rightPanel:not(.rightPanelOff) > *,
+.rightPanel:not(.rightPanelOff) .controlRow > * {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s ease;
 }
 
 @media (max-height: 440px) and (orientation: landscape) {

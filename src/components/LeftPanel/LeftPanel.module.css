@@ -12,89 +12,14 @@
 }
 
 .brandRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 100%;
   padding: 0 2px;
 }
 
 .brandLogo {
-  font-family: 'Arial Black', 'Helvetica Neue', sans-serif;
-  font-weight: 900;
-  font-style: italic;
-  font-size: 1.15rem;
-  color: var(--text-primary);
-  letter-spacing: -0.03em;
-}
-
-.powerButton {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  padding: 4px;
-  border-radius: 4px;
-  background: linear-gradient(180deg, var(--raised-highlight), var(--raised-surface));
-  box-shadow:
-    0 1px 3px var(--shadow-soft),
-    inset 0 1px 0 var(--rim-highlight-strong),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-  transition: transform 0.06s, box-shadow 0.06s;
-  cursor: pointer;
-}
-
-.powerButton:active {
-  transform: translateY(1px);
-  box-shadow:
-    0 0 1px var(--shadow-soft),
-    inset 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-.powerButtonPulse {
-  animation: powerPulse 2.5s ease-in-out infinite;
-}
-
-@keyframes powerPulse {
-  0%, 100% {
-    box-shadow:
-      0 1px 3px var(--shadow-soft),
-      inset 0 1px 0 var(--rim-highlight-strong),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.15),
-      0 0 4px rgba(72, 200, 112, 0.05);
-  }
-  50% {
-    box-shadow:
-      0 1px 3px var(--shadow-soft),
-      inset 0 1px 0 var(--rim-highlight-strong),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.15),
-      0 0 10px rgba(72, 200, 112, 0.2),
-      0 0 20px rgba(72, 200, 112, 0.08);
-  }
-}
-
-.powerIcon {
-  width: 12px;
-  height: 12px;
-  color: var(--text-muted);
-  transition: color 0.3s ease;
-}
-
-.powerButton[aria-pressed='true'] .powerIcon {
-  color: var(--text-secondary);
-}
-
-.powerLed {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #1a1c22;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.powerLedOn {
-  background: var(--led-green);
-  box-shadow: 0 0 6px var(--led-green-glow);
+  width: 80px;
+  height: auto;
+  display: block;
 }
 
 .speakerGrille {
@@ -121,16 +46,16 @@
 
 .productText {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 0.5rem;
-  color: var(--text-engraved);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  line-height: 1.5;
+  justify-content: center;
   margin-top: 0;
   padding-bottom: 2px;
+}
+
+.productLogo {
+  width: 100px;
+  height: auto;
+  display: block;
 }
 
 @media (max-height: 440px) and (orientation: landscape) {

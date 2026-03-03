@@ -22,8 +22,7 @@ function App() {
   return (
     <div className="app">
       <div className="page-header">
-        <h1 className="page-logo">BLOKK-1</h1>
-        <p className="page-subtext">Web Synthesizer</p>
+        <img src="/blokk-brand-logo.svg" alt="BLOKK" className="page-brand-logo" />
       </div>
       <DeviceFrame onJoystickClick={cycleLooper} />
       <div className="keyboard-legend">
@@ -33,6 +32,10 @@ function App() {
             <span className="legend-desc">{desc}</span>
           </span>
         ))}
+      </div>
+      <div className="footer-group">
+        <img src="/stereo-gfx.svg" alt="Stereo" className="stereo-gfx" />
+        <span className="footer-text">Alste(r).ver.se01ep01 · Made with love. NK26.</span>
       </div>
       <KeyboardHelp />
     </div>

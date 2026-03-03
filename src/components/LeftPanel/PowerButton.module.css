@@ -1,0 +1,73 @@
+.powerButton {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: linear-gradient(180deg, var(--raised-highlight), var(--raised-surface));
+  box-shadow:
+    0 2px 6px var(--shadow-soft),
+    inset 0 1px 0 var(--rim-highlight-strong),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  transition: transform 0.06s, box-shadow 0.06s;
+  cursor: pointer;
+  touch-action: none;
+  flex-shrink: 0;
+}
+
+.powerButton:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 1px 2px var(--shadow-soft),
+    inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(180deg, var(--raised-surface), var(--raised-active));
+}
+
+.powerButtonPulse {
+  animation: powerPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes powerPulse {
+  0%, 100% {
+    box-shadow:
+      0 2px 6px var(--shadow-soft),
+      inset 0 1px 0 var(--rim-highlight-strong),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+      0 0 4px rgba(72, 200, 112, 0.05);
+  }
+  50% {
+    box-shadow:
+      0 2px 6px var(--shadow-soft),
+      inset 0 1px 0 var(--rim-highlight-strong),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+      0 0 10px rgba(72, 200, 112, 0.2),
+      0 0 20px rgba(72, 200, 112, 0.08);
+  }
+}
+
+.powerIcon {
+  width: 14px;
+  height: 14px;
+  color: var(--text-muted);
+  transition: color 0.3s ease;
+}
+
+.powerButton[aria-pressed='true'] .powerIcon {
+  color: var(--text-secondary);
+}
+
+.powerLed {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #1a1c22;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.powerLedOn {
+  background: var(--led-green);
+  box-shadow: 0 0 6px var(--led-green-glow);
+}

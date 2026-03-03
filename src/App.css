@@ -12,25 +12,13 @@
 /* --- Page header --- */
 .page-header {
   text-align: center;
+  margin-bottom: 16px;
 }
 
-.page-logo {
-  font-family: 'Arial Black', 'Helvetica Neue', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 900;
-  font-style: italic;
-  color: var(--text-primary);
-  letter-spacing: -0.02em;
-  margin-bottom: 0.15rem;
-  line-height: 1.1;
-}
-
-.page-subtext {
-  font-family: 'Helvetica Neue', sans-serif;
-  font-size: 0.6rem;
-  color: var(--text-muted);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+.page-brand-logo {
+  width: 200px;
+  height: auto;
+  display: block;
 }
 
 /* --- Keyboard legend --- */
@@ -66,4 +54,29 @@
   font-size: 0.5rem;
   color: var(--text-engraved);
   letter-spacing: 0.04em;
+}
+
+/* --- Footer group (stereo gfx + product text) --- */
+.footer-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.stereo-gfx {
+  width: 45px;
+  height: auto;
+  display: block;
+  opacity: 0.6;
+}
+
+.footer-text {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.45rem;
+  color: var(--text-engraved);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1;
 }
