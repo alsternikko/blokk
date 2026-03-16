@@ -32,7 +32,7 @@
 }
 
 .menuTitle {
-  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-family: 'Google Sans Code', monospace;
   font-size: 0.65rem;
   font-weight: 500;
   color: var(--text-secondary);
@@ -41,7 +41,7 @@
 }
 
 .menuClose {
-  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-family: 'Google Sans Code', monospace;
   font-size: 0.65rem;
   color: var(--text-muted);
   padding: 2px 6px;
@@ -68,7 +68,7 @@
 }
 
 .navBtn {
-  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-family: 'Google Sans Code', monospace;
   font-size: 0.75rem;
   color: var(--text-muted);
   padding: 4px 10px;
@@ -83,7 +83,7 @@
 }
 
 .navLabel {
-  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-family: 'Google Sans Code', monospace;
   font-size: 0.8rem;
   color: var(--led-cyan);
   min-width: 100px;
@@ -104,7 +104,7 @@
   padding: 5px 8px;
   border-radius: 4px;
   background: var(--tray-surface);
-  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-family: 'Google Sans Code', monospace;
   font-size: 0.65rem;
   color: var(--text-muted);
   letter-spacing: 0.06em;
@@ -142,7 +142,7 @@
 }
 
 .adsrLabel {
-  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-family: 'Google Sans Code', monospace;
   font-size: 0.65rem;
   color: var(--text-muted);
   letter-spacing: 0.06em;
@@ -156,7 +156,7 @@
 }
 
 .paramLabel {
-  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-family: 'Google Sans Code', monospace;
   font-size: 0.65rem;
   color: var(--text-muted);
   min-width: 50px;
@@ -170,7 +170,7 @@
 }
 
 .subMenuBtn {
-  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-family: 'Google Sans Code', monospace;
   font-size: 0.55rem;
   color: var(--text-engraved);
   padding: 3px 12px;

@@ -38,7 +38,7 @@ export function KeyboardHelp() {
       position: 'fixed', inset: 0, zIndex: 100,
       background: 'rgba(10, 11, 14, 0.88)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      fontFamily: "'SF Mono', 'Cascadia Code', 'Courier New', monospace",
+      fontFamily: "'Google Sans Code', monospace",
       backdropFilter: 'blur(2px)',
     }}
       onClick={() => setVisible(false)}

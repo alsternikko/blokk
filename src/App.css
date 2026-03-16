@@ -28,7 +28,7 @@
   justify-content: center;
   gap: 6px 14px;
   max-width: 680px;
-  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-family: 'Google Sans Code', monospace;
 }
 
 .legend-item {

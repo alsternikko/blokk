@@ -15,7 +15,7 @@
   padding: 16px 20px;
   min-width: 220px;
   pointer-events: auto;
-  font-family: 'SF Mono', 'Cascadia Code', 'Courier New', monospace;
+  font-family: 'Google Sans Code', monospace;
   color: var(--led-cyan);
   box-shadow:
     0 8px 32px var(--shadow-deep),
