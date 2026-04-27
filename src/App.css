@@ -9,6 +9,14 @@
   gap: 16px;
 }
 
+.app.native-app {
+  padding: 0;
+  gap: 0;
+  min-height: 100dvh;
+  justify-content: center;
+  overflow: hidden;
+}
+
 /* --- Page header --- */
 .page-header {
   text-align: center;

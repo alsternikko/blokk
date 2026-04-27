@@ -214,6 +214,8 @@ export function useKeyboardInput(
         } else {
           setActiveMenu('F3_MODE')
         }
+      } else if (e.key === 'p' || e.key === 'P') {
+        setActiveMenu(activeMenu === 'PRESET' ? 'NONE' : 'PRESET')
       } else if (e.key === 'Escape') {
         setActiveMenu('NONE')
       }

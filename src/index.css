@@ -71,6 +71,17 @@ button:focus-visible {
   border-radius: 4px;
 }
 
+/* Native app touch overrides */
+.native-app {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
 @media (max-width: 480px) {
   :root {
     font-size: 14px;

@@ -7,3 +7,6 @@ dist
 .DS_Store
 *.tsbuildinfo
 .vercel
+
+# Capacitor — generated resources (rebuild with `npx capacitor-assets generate`)
+resources/

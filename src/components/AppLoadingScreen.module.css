@@ -1,0 +1,48 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: #0c0d10;
+  opacity: 1;
+  transition: opacity 0.4s ease-out;
+}
+
+.overlay.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.logo {
+  width: 160px;
+  height: auto;
+  opacity: 0;
+  transform: scale(0.94);
+  animation: revealIn 0.5s ease-out 0.3s forwards;
+}
+
+.productText {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.5rem;
+  color: var(--text-engraved);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1;
+  opacity: 0;
+  animation: revealIn 0.5s ease-out 0.55s forwards;
+}
+
+@keyframes revealIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

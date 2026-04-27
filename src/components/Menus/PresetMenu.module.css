@@ -1,0 +1,91 @@
+.presetPanel {
+  background: var(--chassis-base);
+  border: 1px solid var(--tray-border);
+  border-radius: 8px;
+  padding: 16px;
+  width: min(440px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 8px 32px var(--shadow-deep),
+    inset 0 1px 0 var(--rim-highlight);
+}
+
+.presetGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.presetGrid::-webkit-scrollbar {
+  width: 4px;
+}
+
+.presetGrid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.presetGrid::-webkit-scrollbar-thumb {
+  background: var(--tray-border);
+  border-radius: 2px;
+}
+
+.presetCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 3px;
+  padding: 8px 10px;
+  border-radius: 5px;
+  background: var(--tray-surface);
+  border: 1px solid transparent;
+  font-family: 'Google Sans Code', monospace;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+  cursor: pointer;
+}
+
+.presetCard:hover {
+  background: var(--raised-surface);
+  border-color: var(--tray-border);
+}
+
+.presetCardActive {
+  border-color: var(--led-cyan);
+  background: var(--led-cyan-dim);
+  box-shadow: 0 0 8px var(--led-cyan-glow);
+}
+
+.presetName {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.presetCardActive .presetName {
+  color: var(--led-cyan);
+  text-shadow: 0 0 4px var(--led-cyan-glow);
+}
+
+.presetDesc {
+  font-size: 0.55rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  text-transform: none;
+}
+
+.presetCardActive .presetDesc {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 540px) {
+  .presetGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,5 +1,6 @@
 import { useCallback, useRef } from 'react'
 import type { ChordButtonIndex } from '../../types/music'
+import { lightImpact } from '../../utils/haptics'
 import styles from './ChordButton.module.css'
 
 interface ChordButtonProps {
@@ -19,6 +20,7 @@ export function ChordButton({ index, label, isActive, isLocked, onPress, onRelea
       e.preventDefault()
       pointerPressed.current = true
       ;(e.target as HTMLElement).setPointerCapture(e.pointerId)
+      lightImpact()
       onPress(index)
     },
     [index, onPress],

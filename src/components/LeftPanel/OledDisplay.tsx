@@ -1,4 +1,5 @@
 import { useBlokkStore } from '../../store/useBlokkStore'
+import { getPresetById } from '../../store/soundscapes'
 import { getDiatonicChord } from '../../logic/diatonic'
 import { applyJoystickMod } from '../../logic/joystickMods'
 import { VOICE_LABELS } from '../../audio/drumSynth'
@@ -40,6 +41,8 @@ export function OledDisplay() {
   const joystickMode = useBlokkStore((s) => s.joystickMode)
   const looperTracks = useBlokkStore((s) => s.looperTracks)
   const activeMenu = useBlokkStore((s) => s.activeMenu)
+  const setActiveMenu = useBlokkStore((s) => s.setActiveMenu)
+  const currentPresetId = useBlokkStore((s) => s.currentPresetId)
 
   const isRecording = looperTracks.some((t) => t.status === 'RECORD')
   const isLooping = looperTracks.some((t) => t.status === 'LOOP')
@@ -51,7 +54,9 @@ export function OledDisplay() {
   const seqStepCount = useBlokkStore((s) => s.sequencerStepCount)
   const seqLength = useBlokkStore((s) => s.sequencerLength)
 
-  let line1 = `Key: ${key}`
+  const currentPreset = currentPresetId ? getPresetById(currentPresetId) : null
+
+  let line1 = currentPreset ? currentPreset.name.toUpperCase() : `Key: ${key}`
   let line2 = mode as string
 
   if (mode === 'SEQUENCER') {
@@ -90,6 +95,9 @@ export function OledDisplay() {
   } else if (activeMenu === 'F3_BPM') {
     line1 = `${bpm} BPM`
     line2 = 'TEMPO'
+  } else if (activeMenu === 'PRESET') {
+    line1 = 'SOUNDSCAPES'
+    line2 = 'TAP TO LOAD'
   } else if (activeButton) {
     const isDrum = mode === 'DRUMMODE' || mode === 'AUTODRUM'
     const isDrumLoop = mode === 'DRUMLOOPMODE'
@@ -114,13 +122,36 @@ export function OledDisplay() {
     }
   }
 
+  const tappable = poweredOn && activeMenu === 'NONE'
+
   const displayClass = [
     styles.oledDisplay,
     poweredOn ? styles.displayOn : styles.displayOff,
-  ].join(' ')
+    tappable ? styles.displayTappable : '',
+  ].filter(Boolean).join(' ')
+
+  const handleTap = () => {
+    if (!poweredOn) return
+    if (activeMenu === 'NONE') {
+      setActiveMenu('PRESET')
+    }
+  }
 
   return (
-    <div className={displayClass} role="status" aria-live="polite" aria-label="Display">
+    <div
+      className={displayClass}
+      role={tappable ? 'button' : 'status'}
+      aria-live="polite"
+      aria-label={tappable ? 'Open soundscape presets' : 'Display'}
+      onClick={handleTap}
+      tabIndex={tappable ? 0 : -1}
+      onKeyDown={(e) => {
+        if (tappable && (e.key === 'Enter' || e.key === ' ')) {
+          e.preventDefault()
+          handleTap()
+        }
+      }}
+    >
       <div className={styles.displayContent}>
         <div className={styles.displayLine1}>{line1}</div>
         <div className={styles.displayLine2}>{line2}</div>

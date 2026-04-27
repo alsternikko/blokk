@@ -58,6 +58,7 @@ interface BlokkState {
   xyPadY: number
   activeMenu: MenuContext
   audioUnlocked: boolean
+  currentPresetId: string | null
 
   setXYPad: (x: number, y: number) => void
   setKey: (key: Key) => void
@@ -92,6 +93,7 @@ interface BlokkState {
   setMetronome: (on: boolean) => void
   setActiveMenu: (menu: MenuContext) => void
   setAudioUnlocked: (unlocked: boolean) => void
+  setCurrentPresetId: (id: string | null) => void
 }
 
 const defaultChordButton = (): ChordButtonState => ({
@@ -159,6 +161,7 @@ export const useBlokkStore = create<BlokkState>((set) => ({
   isMetronomeOn: false,
   activeMenu: 'NONE',
   audioUnlocked: false,
+  currentPresetId: null,
 
   setXYPad: (x, y) => set({ xyPadX: Math.max(0, Math.min(1, x)), xyPadY: Math.max(0, Math.min(1, y)) }),
   setKey: (key) => set({ key }),
@@ -232,4 +235,5 @@ export const useBlokkStore = create<BlokkState>((set) => ({
   setMetronome: (isMetronomeOn) => set({ isMetronomeOn }),
   setActiveMenu: (activeMenu) => set({ activeMenu }),
   setAudioUnlocked: (audioUnlocked) => set({ audioUnlocked }),
+  setCurrentPresetId: (currentPresetId) => set({ currentPresetId }),
 }))

@@ -36,10 +36,38 @@
   transition: opacity 0.5s ease;
 }
 
+.nativeFrame {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  padding: max(8px, env(safe-area-inset-top))
+             max(12px, env(safe-area-inset-right))
+             max(8px, env(safe-area-inset-bottom))
+             max(12px, env(safe-area-inset-left));
+}
+
 @media (max-height: 440px) and (orientation: landscape) {
   .deviceFrame {
     padding: 8px;
     border-radius: 10px;
+  }
+
+  .nativeFrame {
+    padding: max(6px, env(safe-area-inset-top))
+               max(8px, env(safe-area-inset-right))
+               max(6px, env(safe-area-inset-bottom))
+               max(8px, env(safe-area-inset-left));
+  }
+}
+
+@media (max-height: 380px) and (orientation: landscape) {
+  .nativeFrame {
+    padding: max(4px, env(safe-area-inset-top))
+               max(6px, env(safe-area-inset-right))
+               max(4px, env(safe-area-inset-bottom))
+               max(6px, env(safe-area-inset-left));
   }
 }
 

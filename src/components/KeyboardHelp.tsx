@@ -8,6 +8,7 @@ const SHORTCUTS = [
   ['Q', 'F1 menu (Key/Octave)'],
   ['W', 'F2 menu (Sounds/Effects)'],
   ['E', 'F3 menu (Mode/BPM)'],
+  ['P', 'Soundscape presets'],
   ['Escape', 'Close menu'],
   ['L + chord', 'Toggle chord lock'],
   ['I + chord', 'Cycle inversion'],

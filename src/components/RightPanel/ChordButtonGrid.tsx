@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react'
+import { useCallback, useMemo, useRef } from 'react'
 import { useBlokkStore } from '../../store/useBlokkStore'
 import type { ChordButtonIndex } from '../../types/music'
 import { ChordButton } from './ChordButton'
@@ -14,19 +14,27 @@ export function ChordButtonGrid() {
   const chordButtons = useBlokkStore((s) => s.chordButtons)
   const mode = useBlokkStore((s) => s.mode)
   const setActiveChordButton = useBlokkStore((s) => s.setActiveChordButton)
+  const heldButtons = useRef(new Set<ChordButtonIndex>())
 
   const isDrumMode = mode === 'DRUMMODE' || mode === 'DRUMLOOPMODE' || mode === 'AUTODRUM'
 
   const handlePress = useCallback(
     (index: ChordButtonIndex) => {
+      heldButtons.current.add(index)
       setActiveChordButton(index)
     },
     [setActiveChordButton],
   )
 
   const handleRelease = useCallback(
-    (_index: ChordButtonIndex) => {
-      setActiveChordButton(null)
+    (index: ChordButtonIndex) => {
+      heldButtons.current.delete(index)
+      if (heldButtons.current.size === 0) {
+        setActiveChordButton(null)
+      } else {
+        const remaining = [...heldButtons.current]
+        setActiveChordButton(remaining[remaining.length - 1])
+      }
     },
     [setActiveChordButton],
   )

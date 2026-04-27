@@ -1,0 +1,104 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 8500;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9000;
+  width: 260px;
+  max-width: 70vw;
+  background: var(--chassis-base, #16181e);
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  padding: max(16px, env(safe-area-inset-top))
+           max(16px, env(safe-area-inset-right))
+           max(16px, env(safe-area-inset-bottom))
+           16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sectionTitle {
+  font-family: 'Google Sans Code', monospace;
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.controlItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.controlLabel {
+  font-family: 'Google Sans Code', monospace;
+  font-size: 0.55rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: rgba(28, 30, 38, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 3px;
+  padding: 2px 6px;
+  white-space: nowrap;
+}
+
+.controlDesc {
+  font-size: 0.5rem;
+  color: var(--text-engraved);
+  letter-spacing: 0.03em;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.brandLogo {
+  width: 80px;
+  height: auto;
+  opacity: 0.5;
+}
+
+.brandText {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.4rem;
+  color: var(--text-engraved);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+}

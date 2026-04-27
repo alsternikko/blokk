@@ -8,15 +8,25 @@
     "build": "vite build",
     "typecheck": "tsc -b",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "ios:sync": "vite build && npx cap sync ios",
+    "ios:open": "npx cap open ios",
+    "ios:dev": "npx cap run ios --livereload --external"
   },
   "dependencies": {
+    "@capacitor/core": "^8.3.0",
+    "@capacitor/haptics": "^8.0.1",
+    "@capacitor/ios": "^8.3.0",
+    "@capacitor/splash-screen": "^8.0.1",
+    "@capacitor/status-bar": "^8.0.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "tone": "^15.1.22",
     "zustand": "^5.0.11"
   },
   "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.3.0",
     "@eslint/js": "^9.39.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
